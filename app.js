@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
 
     // --- URL de tu Backend (ahora público, pero protegido por CORS) ---
-    const BACKEND_URL = "https://gem-analyzer-backend-410163603371-europe-west1.run.app";
+    const BACKEND_URL = "https://gem-analyzer-backend-410163603371.europe-west1.run.app";
 
     // --- Event Listeners ---
     fetchDataBtn.addEventListener('click', loadAndRenderTokens);
