@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EarlyGem Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>💎 EarlyGem Scanner</h1>
+        <button id="exportCsvBtn">Exportar CSV</button>
+    </header>
+
+    <div class="container">
+        <aside class="panel-left">
+            <h3>Filtros</h3>
+            <div class="filter-group">
+                <label for="network">Red:</label>
+                <select id="network">
+                    <option value="solana" selected>Solana</option>
+                    <option value="ethereum">Ethereum</option>
+                    <option value="base">Base</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="minLiquidity">Mín. Liquidez ($):</label>
+                <input type="number" id="minLiquidity" value="1000">
+            </div>
+            <div class="filter-group">
+                <label for="minVolume">Mín. Volumen 24h ($):</label>
+                <input type="number" id="minVolume" value="5000">
+            </div>
+            <div class="filter-group">
+                <label for="maxMarketCap">Máx. Market Cap ($):</label>
+                <input type="number" id="maxMarketCap" value="500000">
+            </div>
+            <div class="filter-group">
+                <label for="poolAge">Edad del Pool:</label>
+                <select id="poolAge">
+                    <option value="2" selected>&lt; 2 horas</option>
+                    <option value="6">&lt; 6 horas</option>
+                    <option value="24">&lt; 24 horas</option>
+                </select>
+            </div>
+            <button id="fetchDataBtn">Buscar Gemas</button>
+        </aside>
+
+        <main class="panel-center">
+            <div id="loader" class="loader" style="display: none;">Cargando tokens...</div>
+            <table id="tokensTable">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Red</th>
+                        <th>Precio ($)</th>
+                        <th>Liquidez ($)</th>
+                        <th>Vol 24h ($)</th>
+                        <th>Edad</th>
+                        <th>Fuentes</th>
+                        <th>Gem Score</th>
+                    </tr>
+                </thead>
+                <tbody id="tokensTableBody">
+                    </tbody>
+            </table>
+        </main>
+
+        <aside class="panel-right">
+            <h3>IA Insights</h3>
+            <div id="insightsContent">
+                <p>Haz clic en un token para obtener análisis de IA...</p>
+            </div>
+            <div id="insightsLoader" class="loader" style="display: none;">Analizando con Gemini...</div>
+            <div id="webValidationContent" style="display: none;">
+                <h4>Validación Web</h4>
+                <div id="webValidationResult"></div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
